@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student's score</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let subject = [
+        {
+            Name:"Krishna Padaliya",
+            Score: 120,
+        },
+        {
+            Name:"Kunjal Thakkar",
+            Score: 90,
+        },
+        {
+            Name:"Hargi Varsana",
+            Score:80,
+        },
+        {
+            Name:"Siya Rajput",
+            Score:50,
+        },
+        {
+            Name:"Krisha Patel",
+            Score:95,
+        }
+    ]
+        let arr = []
+        for(let i=0 ; i<subject.length ; i++){
+            if(subject[i].Score >= 90){
+                arr.push(subject[i].Name)
+        }
+    }
+    console.log(arr)
+
+</script>

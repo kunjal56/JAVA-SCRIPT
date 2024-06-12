@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" integrity="sha512-i5VzKip7owqOGjb0YTF8MR2J9yBVO3FLHeazKzLp354XYTmKcqEU3UeFYUw82R8tV6JqxeATOfstCfpfPhbyEA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #product{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        #pic{
+            /* width: 150px; */
+            height: 200px;
+        }
+        #productdiv{
+            flex-basis: 24%; 
+            /* border: 1px solid black;    */
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <i class="ri-shopping-cart-2-line" id="cartbtn"></i> -->
+    <div id="cartbtn"></div><br>
+    <select name="" id="sortsec">
+        <option value="">Add filter</option>
+        <option value="high">High to Low</option>
+        <option value="low">Low to High</option>
+        <option value="atoz">A to Z</option>
+        <option value="ztoa">Z to A</option>
+    </select><br><br><br>
+    <div id="product"></div>
+
+</body>     
+</html>
+<script>
+
+    let productdata = [
+        {
+            image : "https://m.media-amazon.com/images/I/616NPYYloKL._AC_UL480_QL65_.jpg",
+            title : "a realme narzo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 7999,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61uUEqO5uQL._AC_UL480_FMwebp_QL65_.jpg",
+            title : "z  narPOCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 5999,
+            rate : "⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/813sVzTfvaL._AC_UL480_FMwebp_QL65_.jpg",
+            title : "n realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 5699,
+            rate : "⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        },                                                  
+    ]
+
+    function product(productdata){
+        document.getElementById("product").innerHTML = ""
+        productdata.map((item,i)=>{
+                let div = document.createElement("div")
+                div.setAttribute("id","productdiv")
+                
+                let images = document.createElement("img")
+                images.setAttribute("src",item.image)
+                images.setAttribute("id","pic")
+                images.setAttribute("width","150px")
+
+                let name = document.createElement("h3")
+                name.innerHTML = item.title
+
+                let rupees = document.createElement("h2")
+                rupees.innerHTML = "₹ "+ item.price
+
+                let rating = document.createElement("h4")
+                rating.innerHTML = item.rate
+
+                let btn = document.createElement("button")
+                btn.innerHTML = "ADD TO CART"
+
+                btn.addEventListener("click",function(){
+                    addcartpage(i)
+                })
+
+                div.append(images,name,rupees,rating,btn)
+                document.querySelector("#product").append(div)
+        })
+    }
+    product(productdata)
+
+
+    let sortproduct = document.getElementById("sortsec")
+    sortproduct.addEventListener("change",()=>{
+        let selectedproduct = sortproduct.value 
+
+        let selectedproductvalue = []
+
+        if(selectedproduct === "high"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>b.price - a.price)
+        }
+        else if(selectedproduct === "low"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>a.price - b.price)
+        }
+        else if(selectedproduct === "atoz"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>a.title.localeCompare(b.title))
+        }
+        else if(selectedproduct === "ztoa"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>b.title.localeCompare(a.title))
+        }
+        else{
+            selectedproductvalue = productdata.slice()
+        }
+
+        product(selectedproductvalue)
+    })
+
+    let cartpagebutton = document.createElement("button")
+    cartpagebutton.innerHTML = "Your Cart"
+
+    document.getElementById("cartbtn").append(cartpagebutton)
+    cartpagebutton.addEventListener("click",()=>{
+        window.open("cart.html")
+    })
+
+    function addcartpage(index){
+        let product = productdata.filter((item,i)=>{
+            return i === index
+        })
+
+        let find = JSON.parse(localStorage.getItem("cart")) || []
+        find.push(product[0])
+
+        localStorage.setItem("cart",JSON.stringify(find))
+
+    }
+
+</script>

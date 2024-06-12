@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Product Page</h1>
+        <label for="sort">Sort By:</label>
+        <select id="sort" onchange="Sort()">
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+            <option value="low">Low to High</option>
+            <option value="high">High to Low</option>
+        </select>
+    </header>
+
+    <div id="product_cart"></div>
+
+    <div id="productDetails">
+        <div id="detailsContainer">
+            <span id="closeBtn" onclick="closeDetails()">×</span>
+            <img id="productImage" alt="Product Image">
+            <p id="productDescription"></p>
+            <p id="productPrice"></p>
+        </div>
+    </div>
+
+    <script>
+        let products = [
+            { 
+                id: 1, 
+                image: "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/f/m/y/xl-hood-290-green-nasa-lewel-original-imagk2ckj3gsfgac.jpeg?q=70&amp;crop=false", 
+                description: "Men Typography Hooded Neck Cotton Blend Green, Black T-Shirt", 
+                price: 308 
+            },
+            { 
+                id: 2, 
+                image: "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/r/9/n/xxl-patta-14-jai-textiles-original-imagn2fzpawqukgq.jpeg?q=70&amp;crop=false", 
+                description: "Men Slim Fit Striped Casual Shirt", 
+                price: 499 
+            },
+            { 
+                id: 3, 
+                image: "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/y/7/s/l-men-s-stylish-trendy-half-sleeve-digital-printed-latest-design-original-imagqz69mu8sryvh.jpeg?q=70&amp;crop=false", 
+                description: "Men Striped Round Neck Polyester White, Black T-Shirt", 
+                price: 249 
+            },
+        ];
+
+        letproduct_cart = document.getElementById("product_cart");
+
+        function product() {
+           product_cart.innerHTML = "";
+            products.forEach(product => {
+                let productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `<img src="${product.image}" alt="Product Image">
+                                            <h3>${product.description}</h3>
+                                            <p>${product.price}</p>`;
+                productElement.addEventListener("click", () => showDetails(product));
+               product_cart.append(productElement);
+            });
+        }
+
+        function Sort() {
+            let sort = document.getElementById("sort");
+            let sortBy = sort.value;
+            if (sortBy === "az") {
+                products.sort((a, b) => b.description.localeCompare(a.description));
+            } else if (sortBy === "za") {
+                products.sort((a, b) => a.description.localeCompare(b.description));
+            } else if (sortBy === "low") {
+                products.sort((a, b) => a.price - b.price);
+            } else if (sortBy === "high") {
+                products.sort((a, b) => b.price - a.price);
+            }
+
+            product();
+        }
+
+        function showDetails(product) {
+            document.getElementById("productImage").src = product.image;
+            document.getElementById("productDescription").textContent = product.description;
+            document.getElementById("productPrice").textContent = `Price: $${product.price}`;
+            document.getElementById("productDetails").style.display = "flex";
+        }
+
+        window.closeDetails = function () {
+            document.getElementById("productDetails").style.display = "none";
+        };
+
+        product();
+    </script>
+
+</body>
+</html>

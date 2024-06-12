@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+
+    <center>
+        <hr>
+        <h2>Cooking Food</h2>
+
+        <label for="pizzaCooking">Enter Pizza Cooking Process:</label>
+        <input type="text" id="pizzaCooking" required>
+        <br>
+        <label for="sushiCooking">Enter Sushi Cooking Process:</label>
+        <input type="text" id="sushiCooking" required>
+        <br>
+        <label for="burgerCooking">Enter Burger Cooking Process:</label>
+        <input type="text" id="burgerCooking" required>
+        <br>
+        <button onclick="cookCustomFood()">Cook Custom Food</button>
+
+        <div id="cookingProcessOutput"></div>
+        <hr>
+    </center>
+
+    <script>
+        class Food {
+            cook() {
+                throw new Error("cook() method must be implemented in subclasses.");
+            }
+        }
+
+        class Pizza extends Food {
+            constructor(cookingProcess) {
+                super();
+                this.cookingProcess = cookingProcess;
+            }
+
+            cook() {
+                return `Pizza is cooked by ${this.cookingProcess}.`;
+            }
+        }
+
+        class Sushi extends Food {
+            constructor(cookingProcess) {
+                super();
+                this.cookingProcess = cookingProcess;
+            }
+
+            cook() {
+                return `Sushi is cooked using ${this.cookingProcess}.`;
+            }
+        }
+
+        class Burger extends Food {
+            constructor(cookingProcess) {
+                super();
+                this.cookingProcess = cookingProcess;
+            }
+
+            cook() {
+                return `Burger is cooked with ${this.cookingProcess}.`;
+            }
+        }
+
+        function cookCustomFood() {
+            const pizzaCooking = document.getElementById("pizzaCooking").value;
+            const sushiCooking = document.getElementById("sushiCooking").value;
+            const burgerCooking = document.getElementById("burgerCooking").value;
+
+            const pizza = new Pizza(pizzaCooking);
+            const sushi = new Sushi(sushiCooking);
+            const burger = new Burger(burgerCooking);
+
+            const cookingProcessOutput = document.getElementById("cookingProcessOutput");
+            cookingProcessOutput.innerHTML = `
+                <p>${pizza.cook()}</p>
+                <p>${sushi.cook()}</p>
+                <p>${burger.cook()}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

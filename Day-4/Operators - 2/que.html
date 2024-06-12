@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label >Principal amount</label><br>
+    <input type="text" name="" id="p1">
+    <br><br>
+
+    <label>Rate of interest</label><br>
+    <input type="text" id="p2">
+    <br><br>
+
+    <label >Time period</label><br>
+    <input type="text" id ="p3">
+    <br><br>
+
+    <script>
+        let r=document.getElementById("p1").value
+        let s=document.getElementById("p2").value
+        let t=document.getElementById("p3").value
+       
+        let a=(r*s*t)/1006
+
+        document.getElementById("p1").innerText="a"
+        document.getElementById("p1").innerText="+p1 + +a"
+
+        console.log(a)
+        console.log()
+    </script>
+</body>
+</html>

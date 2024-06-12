@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisibility Checke</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter any value</label>
+        <br>
+        <input type="text" placeholder="value" id="divide">
+        <br><br>
+
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let Divisibility = document.getElementById("divide").value
+
+    if(Divisibility%5==0){
+        document.getElementById("ans").innerHTML="yes, the number you have given is Divisible by 5";
+    }else if(Divisibility%7==0){
+        document.getElementById("ans").innerHTML="yes, the number you have given is Divisible by 7";
+    }else{
+        document.getElementById("ans").innerHTML="No, the number you have given is not Divisible by 5 or 7"
+    }
+</script>

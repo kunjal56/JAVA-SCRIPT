@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation**</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function validEmail(email){
+        if(!email.includes('@')){
+            throw new Error ("Must content '@'")
+        }else{
+            console.log("valid email address : ",email)
+        }
+    }
+
+    try{
+        validEmail("italic.com")
+    }catch(error){
+        console.log("Error :", error.message)
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time of Day Greeting</title>
+</head>
+<body>
+    <center>
+        <h3 id="ans"></h3>
+    <center>
+</body>
+</html>
+<script>
+    let greet = prompt('Enter the Time of day')
+    if (greet == ""){
+        document.getElementById("ans").innerHTML = ""
+    }else{
+        if(greet >=6 && greet <= 12){
+        document.getElementById("ans").innerHTML="Good morning !!"
+    }else if(greet >=13 && greet <= 16){
+        document.getElementById("ans").innerHTML="Good Afternoon !!"
+    }else if(greet >16 && greet < 21){
+        document.getElementById("ans").innerHTML="Good evening !!"
+    }else{
+        document.getElementById("ans").innerHTML="Good Night !!"
+    }
+    }
+   
+</script>

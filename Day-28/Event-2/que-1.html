@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-1</title>
+</head>
+<body>
+    <center>
+        <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Mini Calculator</h1>
+        <br>
+        <label for="">Enetr first value</label>
+        <input type="value" id="i-1" placeholder="value">
+        <br><br><br>
+        <label for="">Enetr Second value</label>
+        <input type="value" id="i-2" placeholder="value">
+        
+        <br><br><br>
+        <h3 id="ans" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></h3>
+
+        <br>
+        <hr>
+        <br>
+        <button id="btn">Addition</button>
+        <button id="btn-sub">Subtract</button>
+        <button onclick="div()">Division</button>
+        <button onclick="multie()">multiplication</button>
+
+
+    </center>
+</body>
+</html>
+<script>
+
+    var first = document.getElementById("i-1").value
+    var second = document.getElementById("i-2").value
+
+    document.getElementById('btn').addEventListener("click" , add)
+
+    function add(){
+        var sum = +first + +second
+        document.getElementById("ans").innerHTML = "Sum of two number is : " +sum        
+    }
+
+    document.getElementById('btn-sub').addEventListener("click" , minus)
+
+    function minus(){
+        var sub = +first - +second
+        document.getElementById("ans").innerHTML = "Sub of two number is : " +sub
+    }
+
+    function div(){
+        var division = +first / +second
+        document.getElementById("ans").innerHTML = "Division of two number is : " +division
+    }
+
+    function multie(){
+        var multiplication = +first * +second
+        document.getElementById("ans").innerHTML = "Division of two number is : " +multiplication
+    }
+
+</script>

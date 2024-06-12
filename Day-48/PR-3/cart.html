@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #filterdcart{
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        #pic{
+            /* width: 150px; */
+            height: 200px;
+        }
+        #productdiv{
+            flex-basis: 24%; 
+            /* border: 1px solid black;    */
+        }
+    </style>
+</head>
+<body>
+    <div id="filterdcart"></div>
+</body>
+</html>
+<script>
+
+let cartdata = JSON.parse(localStorage.getItem("cart")) || []
+
+function product(){
+    document.getElementById("filterdcart").innerHTML = ""
+    cartdata.map((item,index)=>{
+        let div = document.createElement("div")
+        div.setAttribute("id","productdiv")
+
+        let image = document.createElement("img")
+        image.setAttribute("src",item.image)
+        image.setAttribute("id","pic")
+
+        let title = document.createElement("h3")
+        title.innerHTML = item.title
+
+        let price = document.createElement("h2")
+        price.innerHTML = item.price
+
+        let qnty = document.createElement("p")
+        qnty.innerHTML = "Quantity : " + item.qnty
+
+        let rate = document.createElement("h4")
+        rate.innerHTML = item.rate
+
+        let removebtn = document.createElement("button")
+        removebtn.innerHTML = "Remove"
+        removebtn.addEventListener("click",()=>{
+            cartdata.splice(index,1)
+            localStorage.setItem("cart",JSON.stringify(cartdata))
+            product()
+        })
+
+        div.append(image,title,price,rate,qnty,removebtn)
+        document.querySelector("#filterdcart").append(div)
+
+    })
+}
+product()
+</script>

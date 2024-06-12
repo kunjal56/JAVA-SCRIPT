@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p  class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam facilis inventore. Dolores, magnam. Suscipit atque, eos consectetur officiis fugit explicabo quo! Provident vel illum, odio architecto unde itaque ipsa?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae quo incidunt nam repudiandae accusantium expedita libero, minima blanditiis veritatis fugiat odit tempore ipsa eius magni, at esse quaerat saepe dolor. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat laborum temporibus voluptatibus illo autem officia accusamus eius minima cumque, enim sequi, maiores delectus, quidem earum quasi quaerat quibusdam. Sit, laborum?</p>
+    <br><br>
+
+    <p class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugit velit optio consequuntur quae molestias at amet ducimus corporis porro nobis magni sint id voluptatum dolorem, laudantium itaque, dignissimos in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident modi placeat doloremque optio nostrum et, possimus harum natus. Quam, accusamus saepe. Mollitia explicabo ipsum ipsam atque ratione asperiores harum sunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit iure labore mollitia in obcaecati temporibus, tempore at reiciendis perferendis sint ullam doloremque hic soluta numquam necessitatibus? Accusamus consequuntur quis voluptates!</p>
+    <br><br>
+
+    <p class="even">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae in at nam veniam nihil perspiciatis officia. Quibusdam nostrum doloremque ullam, veritatis iusto hic. Est doloribus omnis aperiam, et fuga explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda unde ipsam aperiam excepturi. Vel reprehenderit voluptate facilis repudiandae, unde, assumenda adipisci dignissimos facere veniam neque architecto vitae numquam ullam explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis odio excepturi quaerat, dolore rerum alias impedit explicabo, odit voluptatum omnis cupiditate, harum aut? Ratione officiis deleniti quos quas, tenetur atque.</p>
+    <br><br>
+
+    <p class="even">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae in at nam veniam nihil perspiciatis officia. Quibusdam nostrum doloremque ullam, veritatis iusto hic. Est doloribus omnis aperiam, et fuga explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda unde ipsam aperiam excepturi. Vel reprehenderit voluptate facilis repudiandae, unde, assumenda adipisci dignissimos facere veniam neque architecto vitae numquam ullam explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis odio excepturi quaerat, dolore rerum alias impedit explicabo, odit voluptatum omnis cupiditate, harum aut? Ratione officiis deleniti quos quas, tenetur atque.</p>
+    <br><br>
+
+    <p class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae in at nam veniam nihil perspiciatis officia. Quibusdam nostrum doloremque ullam, veritatis iusto hic. Est doloribus omnis aperiam, et fuga explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda unde ipsam aperiam excepturi. Vel reprehenderit voluptate facilis repudiandae, unde, assumenda adipisci dignissimos facere veniam neque architecto vitae numquam ullam explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis odio excepturi quaerat, dolore rerum alias impedit explicabo, odit voluptatum omnis cupiditate, harum aut? Ratione officiis deleniti quos quas, tenetur atque.</p>
+    <br><br>
+
+    <p class="even">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae in at nam veniam nihil perspiciatis officia. Quibusdam nostrum doloremque ullam, veritatis iusto hic. Est doloribus omnis aperiam, et fuga explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda unde ipsam aperiam excepturi. Vel reprehenderit voluptate facilis repudiandae, unde, assumenda adipisci dignissimos facere veniam neque architecto vitae numquam ullam explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis odio excepturi quaerat, dolore rerum alias impedit explicabo, odit voluptatum omnis cupiditate, harum aut? Ratione officiis deleniti quos quas, tenetur atque.</p>
+    <br><br>
+
+    <button onclick="evenclick()">click to watch even</button>
+    <button onclick="oddclick()">click to watch odd</button>
+
+</body>
+</html>
+<script>
+
+oddclick = () => {
+    var odd1 = document.querySelectorAll('.odd')
+    for(let i = 0;i<odd1.length;i++){
+        odd1[i].style.color = "red"
+        odd1[i].style.backgroundColor = "blue"
+    }
+}
+evenclick = () => {
+    var even1 = document.querySelectorAll('.even')
+    for(let i = 0;i<even1.length;i++){
+        even1[i].style.color = "yellow"
+        even1[i].style.backgroundColor = "black"
+    }
+}
+
+</script>

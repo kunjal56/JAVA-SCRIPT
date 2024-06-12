@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading System</title>
+</head>
+<body>
+    <label for="">Enter score</label><br>
+    <input type="text" placeholder="Score" id="scr">
+
+    <h3 id="ans"></h3>
+</body>
+</html>
+<script>
+    let score = document.getElementById("scr").value
+
+    if(score == ""){
+        document.getElementById("ans").innerHTML=""
+    }else if(score>=90 && score<=100){
+        document.getElementById("ans").innerHTML=score + " A"
+    }else if(score>=80 && score<90){
+        document.getElementById("ans").innerHTML=score + " B"
+    }else if(score>=70 && score<80){
+        document.getElementById("ans").innerHTML=score + " C"
+    }else if(score>=60 && score<70){
+        document.getElementById("ans").innerHTML=score + " D"
+    }else{
+        document.getElementById("ans").innerHTML=score + " FAIL"
+    }
+</script>

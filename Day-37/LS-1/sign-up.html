@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up page</title>
+</head>
+<body>
+    <center>
+
+        <h1>Sign-up form</h1>
+
+        <form action="" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px;" id="signup">
+
+            
+            <label for="">Email_id</label>
+            <input type="text" name="" placeholder="email" id="email">
+            
+            <br><br>
+
+            <label for="">Phone no.</label>
+            <input type="number" placeholder="Name" id="num">
+
+            <br><br>
+            
+            <label for="">Password</label>
+            <input type="password" placeholder="password" id="ps">
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </center>
+</body>
+<script>
+    let signup = document.getElementById("signup")
+
+    signup.addEventListener ("submit" , function(event){ 
+        event.preventDefault()
+            
+        let phone = document.getElementById("num").value
+        let email = document.getElementById("email").value
+        let password = document.getElementById("ps").value
+
+        let storedusers = JSON.parse(localStorage.getItem("users"))  || [] 
+        storedusers.push({email,phone, password})
+
+        localStorage.setItem("users" , JSON.stringify(storedusers))
+
+    })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br><br>
+    <section>
+        <select id="in" onchange="check()" style="width: 150px; height: 30px;">
+            <option value="Monday">Monday</option>
+            <option value="Friday">Friday</option>
+            <option value="Other">Other</option>
+        </select>
+    </section>
+    <h1 id="ans"></h1>
+    <hr>
+    </center>
+
+    <script>
+            let selday = document.getElementById("in").value;
+
+            switch (selday) {
+                case "Monday": document.getElementById("ans").innerText="It's the start of the workweek."
+                    break;
+                case "Friday": document.getElementById("ans").innerText="It's almost the weekend!"
+                    break;
+                default:
+                document.getElementById("ans").innerText="It's some other day."
+            }
+    </script>
+</body>
+</html>

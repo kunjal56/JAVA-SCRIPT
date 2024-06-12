@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider(1)</title>
+    <style>
+        header {
+            height: 70px;
+            border: 1px solid black;
+        }
+
+        .options {
+            height: 160px;
+            border: 1px solid black;
+        }
+        section{
+            width: 100%;
+        }
+        section img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <img src="Image/009501a3ad6d6fd2.jpg" alt="">
+        <img src="Image/7fd0e4ab26429926.jpg" alt="">
+        <img src="Image/de6d58606eb35cd9.jpg" alt="">
+        <img src="Image/ca2843e62171405e.jpg" alt="">
+        <img src="Image/f51d4324b73f58d7.jpg" alt="">
+    </section>
+    <br>
+    <button onclick="stopslide()">Stop</button>
+    <button onclick="previous()"><i class="ri-arrow-left-s-line"></i></button>
+    <button onclick="next()"><i class="ri-arrow-right-s-line"></i></button>
+    
+    <script>
+        let slider = document.querySelectorAll("img");
+        let sliderIndex = 0;
+        let interval;
+
+        function showslider(index) {
+            for (let i = 0; i < slider.length; i++) {
+                slider[i].style.display = "none";
+            }
+
+            slider[index].style.display = "block";
+        }
+
+        function showstart() {
+            interval = setInterval(() => {
+                showslider(sliderIndex);
+                sliderIndex++;
+
+                if (sliderIndex >= slider.length) {
+                    sliderIndex = 0;
+                }
+
+            }, 2000);
+        }
+
+        function stopslide() {
+            clearInterval(interval);
+        }
+
+        showstart();
+        showslider(sliderIndex);
+    </script>
+</body>
+
+</html>

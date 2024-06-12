@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+        }
+        #product{
+            flex-basis: 30%;
+            border: 1px solid black;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+        #pic{
+            height: 300px;
+            width: 300px;
+        }
+        #offer{
+            color: red;
+        }
+        .price{
+            font-size: 30px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    
+</body>
+</html>
+<script>
+    let data = [
+        {
+            image : "https://m.media-amazon.com/images/I/516LU0H963L._AC_UL480_QL65_.jpg",
+            name : "Logitech B170 Wireless Mouse, 2.4 GHz with USB Nano Receiver, Optical Tracking, 12-Months Battery Life, Ambidextrous, PC/Mac/Laptop - Black",
+            rate : "⭐⭐⭐⭐⭐",
+            offer : "Save 34%",
+            price : "₹595 <small><del>M.R.P: ₹895</del></small>",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/41KuRShR97L._AC_UL480_QL65_.jpg",
+            name : "Portronics Toad 23 Wireless Optical Mouse with 2.4GHz, USB Nano Dongle, Optical Orientation, Click Wheel, Adjustable DPI(Black)",
+            rate : "⭐⭐⭐⭐⭐",
+            offer : "Save 50%",
+            price : "₹299 M.R.P: ₹599",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/415yl0HeDQL._AC_UL480_QL65_.jpg",
+            name : "Dell USB Wireless Keyboard and Mouse Set- KM3322W, Anti-Fade & Spill-Resistant Keys, up to 36 Month Battery Life, 3Y Advance Exchange Warranty",
+            rate : "⭐⭐⭐⭐",
+            offer : "",
+            price : "₹1,299 M.R.P: ₹2,499",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/616NPYYloKL._AC_UL480_QL65_.jpg",
+            name : "HP 150 Wireless Mouse,1600 DPI, 10 m Range, 2.4 GHz USB dongle for Instant connectivity, Ambidextrous, Ergonomic Design, Rubber Grip for All Day",
+            rate : "⭐⭐⭐",
+            offer : "Save 34%",
+            price : "₹595 M.R.P: ₹899",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61-kTKQuDUL._AC_UL480_QL65_.jpg",
+            name : "Dell KB216/KB216d1 Multimedia USB Keyboard with Super Quite Plunger Keys with Spill-Resistant Wired Keybaord Black",
+            rate : "⭐⭐⭐⭐⭐",
+            offer : "Save 12%",
+            price : "₹569 M.R.P: ₹649",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/81OFGaT-SlL._AC_UL480_QL65_.jpg",
+            name : "Zebronics Zeb-Power Wired USB Mouse, 3-Button, 1200 DPI Optical Sensor, Plug & Play, for Windows/Mac",
+            rate : "⭐⭐",
+            offer : "Save 30%",
+            price : "₹139 M.R.P: ₹199",
+            deliverytime : "Get it by Tomorrow, 25 January",
+        },
+    ]
+   
+</script>
+<!--Product data-->
+<script>
+    function item(data){
+        document.getElementById("main").innerHTML = ""
+        data.map((data)=>{
+            let div = document.createElement("div")
+            div.setAttribute("id","product")
+
+            let image = document.createElement("img")
+            image.setAttribute("src",data.image)
+            image.setAttribute("id","pic")
+
+            let name = document.createElement("h3")
+            name.innerHTML = data.name
+
+            let rate = document.createElement("p")
+            rate.innerHTML = data.rate
+
+            let offer = document.createElement("p")
+            offer.setAttribute("id","offer")
+            offer.innerHTML = data.offer
+
+            let price = document.createElement("p")
+            price.setAttribute("class","price")
+            price.innerHTML = data.price
+
+            let deliverytime = document.createElement("p")
+            deliverytime.innerHTML = data.deliverytime
+
+            let btn = document.createElement("button")
+            btn.innerHTML = "ADD TO CART"
+
+            div.append(image,name,rate,offer,price,deliverytime,btn)
+            document.querySelector("#main").append(div)
+        })
+    }
+    item(data)
+
+
+</script>

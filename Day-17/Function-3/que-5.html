@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h3>Enter Base number</h3>
+        <input type="text" id="firstnumber" placeholder="First number"><br>
+        <h3>Enter Power number</h3>
+        <input type="text" id="secondnumber" placeholder="Second number"><br>
+        
+        <h3>Their Power :- <span id="ans"></span></h3>
+    </center>
+</body>
+</html>
+<script>
+    let a = document.getElementById("firstnumber").value
+    let b = document.getElementById("secondnumber").value
+
+    let Power = function(n,m){
+        if(n==''||m==''){
+            return " "
+        }
+        else{
+            return (n ** m)
+        }
+        
+    }
+
+    document.getElementById("ans").innerHTML = Power(a,b)
+
+</script>

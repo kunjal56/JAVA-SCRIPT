@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <hr>
+    <section>
+        <select id="Grade" onchange="check()" style="width: 200px; height: 50px;">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="F">F</option>
+
+        </select>
+    </section>
+    <h1 id="ans"></h1>
+    <hr>
+    </center>
+
+    <script>
+            var selecteGrade = document.getElementById("Grade").value;
+
+            switch (selecteGrade) {
+                case "A": document.getElementById("ans").innerText="Excellent! You got an A"
+                    break;
+                case "B": document.getElementById("ans").innerText="Well done! You got a B."
+                    break;
+                case "C": document.getElementById("ans").innerText="Good job! You got a C"
+                    break;
+                case "D": document.getElementById("ans").innerText="You got a D. Keep working hard!"
+                    break;
+                case "F": document.getElementById("ans").innerText="Unfortunately, you failed."
+                    break;
+                default:
+                document.getElementById("ans").innerText="SELECT GRADE"
+            }
+    </script>
+</body>
+</html>

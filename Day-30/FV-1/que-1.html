@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form**</title>
+</head>
+<body>
+    <center>
+        
+        <br>
+        <form action="" id="sign" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <h3>Sign-Up Form</h3>
+            <br>
+            <label for="">Enter Your Name</label>
+            <input type="text" placeholder="name" id="i-1">
+            
+            <br><br>
+
+            <label for="">Enter Your Email</label>
+            <input type="text" placeholder="Email" id="i-2">
+
+            <br><br>
+
+            <label for="">Enter Mobile number</label>
+            <input type="number" placeholder="Number" id="i-3">
+            
+            <br><br>
+            
+            <label for="">Enter Password</label>
+            <input type="password" placeholder="password" id="i-4">
+            
+            <br><br>
+
+            <label for="">Confirm password</label>
+            <input type="password" id="i-5">
+
+            <br><br><br>
+
+            <button type="submit">Submit</button>
+            <span id="er"></span>
+        </form>
+    </center>
+</body>
+</html>
+<script>
+    document.getElementById("sign").onsubmit = function(event)
+    {
+
+    try{
+        var name = document.getElementById("i-1").value
+        var email = document.getElementById("i-2").value
+        var ph_no = document.getElementById("i-3").value
+        var password = document.getElementById("i-4").value
+        var cnfrmpass = document.getElementById("i-5").value
+
+        if(/\d/.test(name)){
+            throw new Error ("Invalid name ! re-enter it.")
+        }
+        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+            throw new Error ("Invalid Email")
+        }
+        if(!/^\d{10}$/.test(ph_no)){
+            throw new Error ("Invalid number !")
+        }
+        if(password != confirm_password){
+            throw new Error ("Incorrect password !")
+        }
+        
+        alert("You have successfully sign-up... Thank you !")
+
+    }catch(error){
+        event.preventDefault()
+        document.getElementById("er").innerText = error.message
+    }
+}
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+</head>
+<body>
+    <center>
+        <label>Enter Principal Amount:</label>
+        <br>
+        <input type="text" placeholder="Principal Amount" id="p1">
+        <br><br>
+        <label>Enter Rate of Interest:</label>
+        <br>
+        <input type="text" placeholder="Rate of Interest" id="p2">
+        <br><br>
+        <label>Enter Time Period (in years):</label>
+        <br>
+        <input type="text" placeholder="Time Period" id="p3">
+        <br><br>
+    </center>
+
+</body>
+</html>
+<script>
+     let r=document.getElementById("p1").value
+        let s=document.getElementById("p2").value
+        let t=document.getElementById("p3").value
+    
+        let a=(r*s*t)/100
+        let total = p1+a
+
+        // document.getElementById("p1").innerText="a"
+        // document.getElementById("p1").innerText=" +p1 + +a "
+
+        console.log(a)
+        console.log(total)
+</script>

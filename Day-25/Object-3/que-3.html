@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Inventory Management</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let books = [
+    {
+     title: "The India Story", 
+     author: "Bimal Jalal", 
+     price: 1200, 
+     quantity: 10
+    },
+    {
+     title: "Business of Sports: The Winning Formula for Success", 
+     author: "Vinit Karnik", 
+     price: 90, 
+     quantity: 2
+    },
+    {
+     title: "A Place Called Home", 
+     author: "Preeti Shenoy", 
+     price: 60, 
+     quantity: 0
+    },
+    {
+     title: "Listen to Your Heart: The London Adventure", 
+     author: "Ruskin Bond", 
+     price: 50, 
+     quantity: 6
+    },
+    ]
+    let Books = [];
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].price <= 60 && books[i].quantityAvailable > 0) {
+            Books.push(books[i].title);
+        }
+    }
+    console.log(Books);
+</script>

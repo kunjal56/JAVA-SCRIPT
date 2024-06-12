@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Report</title>
+    <style>
+        #main{
+            width: 40%;
+            margin-left: 30%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px 0px;
+            color: white;
+            background-size: cover;
+            background-image: url('https://cdn.who.int/media/images/default-source/health-topics/coronavirus/corona-virus-getty.tmb-1200v.jpg?sfvrsn=217a6a68_42');
+        }
+        #state_name{
+            height: 30px;
+            font-size: 20px;
+        }
+        #main button{
+            padding: 5px 7px;
+            cursor: pointer;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            font-size: 15px;
+        }
+        #submain{
+            background-color: white;
+            color: black;
+            width: 35%;
+            margin-left: 32.5%;
+            margin-top: 10px;
+        }
+        #confirm{
+            padding-top: 10px;
+        }
+        #tested{
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <h2>Covid - 19 CASES Report State Wise</h2>
+        <input type="text" id="state_name" placeholder="state name in sort form"><br><br>
+        <button onclick="findstate()">Search</button>
+        <div id="submain"></div>
+    </div>
+    
+</body>
+</html>
+<script>
+
+function findstate(){
+    document.getElementById("submain").innerHTML = ""
+    fetch(`https://data.covid19india.org/v4/min/data.min.json`)
+    .then(function(responce){
+        return responce.json()
+    })
+    .then(function(json){
+        console.log(json)
+        getstate(json)
+    })
+
+    function getstate(data){
+        let statename = document.getElementById("state_name").value
+        let confirmed_case = document.createElement("h3")
+        let deceased = document.createElement("h3")
+        let recovered = document.createElement("h3")
+        let tested = document.createElement("h3")
+        for(state in data){
+            if(state == statename){
+                confirmed_case.setAttribute("id","confirm")
+                confirmed_case.innerHTML = "Confirmed : " + data[state].total.confirmed
+                deceased.innerHTML = "Deceased : " + data[state].total.deceased
+                recovered.innerHTML = "Recoverd : " + data[state].total.recovered
+                tested.innerHTML ="Tested : " + data[state].total.tested
+                tested.setAttribute("id","tested")
+
+                document.getElementById("submain").append(confirmed_case,deceased,recovered,tested)
+            }
+        }
+
+    }
+}
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic light</title>
+</head>
+<body>
+    <center>
+        <hr>
+
+        Red: <input type="radio" name="operation" value="Red">
+        Yellow: <input type="radio" name="operation" value="Yellow">
+        Green: <input type="radio" name="operation" value="Green">
+        <h1 id="ans"></h1>
+        <hr>
+    </center>
+
+    <script>
+        let lights = document.getElementsByName("operation");
+        let operation;
+        for (let i = 0; i < lights.length; i++) {
+            if (lights[i].checked) {
+                operation = lights[i].value;
+                break;
+            }
+        }
+        switch (operation) {
+            case "Red":
+                document.getElementById("ans").innerText = "Stop!";
+                break;
+            case "Yellow":
+                document.getElementById("ans").innerText = "Slow down!";
+                break;
+            case "Green":
+                document.getElementById("ans").innerText = "Go!";
+                break;
+            default:
+                document.getElementById("ans").innerText = "Invalid light color";
+        }
+    </script>
+</body>
+</html>

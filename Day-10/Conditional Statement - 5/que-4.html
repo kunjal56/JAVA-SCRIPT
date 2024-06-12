@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <hr>
+        <section>
+            <select id="language" onchange="check()" style="width: 200px; height: 50px;">
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">'French</option>
+            </select>
+        </section>
+        <h1 id="ans"></h1>
+        <hr>
+    </center>
+
+    <script>
+        var selectelanguage = document.getElementById("language").value;
+
+        switch (selectelanguage) {
+            case "English": document.getElementById("ans").innerText = "Hello!"
+                break;
+            case "Spanish": document.getElementById("ans").innerText = "¡Hola!"
+                break;
+            case "French": document.getElementById("ans").innerText = "Bonjour!"
+                break;
+            default:
+                document.getElementById("ans").innerText = "It's some other language."
+        }
+    </script>
+</body>
+
+</html>

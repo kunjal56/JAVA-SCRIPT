@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Five Values</title>
+</head>
+<body>
+    <center>
+    <br>
+    <lable>Enter first value</lable>
+    <br>
+    <input type="text" placeholder="First no." id="i1">
+    <br><br>
+
+    <lable>Enter second value</lable>
+    <br>
+    <input type="text" placeholder="Second no." id="i2">
+    <br><br>
+
+    <lable>Enter Third value</lable>
+    <br>
+    <input type="text" placeholder="Third no." id="i3">
+    <br><br>
+
+    <lable>Enter Fourth value</lable>
+    <br>
+    <input type="text" placeholder="Fourth no." id="i4">
+    <br><br>
+
+    <lable>Enter Fifth value</lable>
+    <br>
+    <input type="text" placeholder="Fifth no." id="i5">
+    <br><br>
+
+    <h2>Before</h2>
+    <h3 id="box-1"></h3>
+    <h3 id="box-2"></h3>
+    <h3 id="box-3"></h3>
+    <h3 id="box-4"></h3>
+    <h3 id="box-5"></h3>
+
+    <br>
+
+    <h2>After</h2>
+    <h3 id="box1"></h3>
+    <h3 id="box2"></h3>
+    <h3 id="box3"></h3>
+    <h3 id="box4"></h3>
+    <h3 id="box5"></h3>
+    </center>
+
+</body>
+</html>
+<script>
+    let a=document.getElementById("i1").value
+    let b=document.getElementById("i2").value
+    let c=document.getElementById("i3").value
+    let d=document.getElementById("i4").value
+    let e=document.getElementById("i5").value
+
+    document.getElementById("box-1").innerText = a;
+    document.getElementById("box-2").innerText = b;
+    document.getElementById("box-3").innerText = c;
+    document.getElementById("box-4").innerText = d;
+    document.getElementById("box-5").innerText = e;
+
+    document.getElementById("box1").innerText = e;
+    document.getElementById("box2").innerText = d;
+    document.getElementById("box3").innerText = c;
+    document.getElementById("box4").innerText = b;
+    document.getElementById("box5").innerText = a;
+
+</script>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <style>
+        .gmap_canvas{
+            width: 600px;
+            height: 500px;
+            
+        }
+
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <br><br><br>
+    <center>
+    <div id="sec1">
+        <input type="text" placeholder="Enter Your City Name : " id="input">
+        <button onclick="fetchData()">Search</button>
+    </div>
+    </center>
+    <br><br><br><br><br>
+    <div id="main">
+        <div id="output"></div>
+
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64079956.37800248!2d84.59823247499999!3d11.398092062096923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1706618111727!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="gmap_canvas"></iframe>
+                <!-- <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe> -->
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function fetchData() {
+        
+        let name = document.getElementById("input").value
+        // let name = 
+        let Api_Key = "a116d4ef920a3b5527c65ed6a3c7d105"
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${Api_Key}`)
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(json){
+            console.log(json) 
+            displaydata(json) 
+        })
+        .catch(function(json){
+            console.log(json)
+            displayerror(json)
+        })
+    }
+
+    function displaydata(data){
+        
+        let map = document.getElementById("gmap_canvas")
+        document.getElementById("output").innerHTML = ""
+
+        let text = document.createElement("h4")
+        text.innerHTML ="City: "+ data.name
+
+        let sys2 = document.createElement("p")
+        sys2.innerHTML ="sunrise: "+data.sys.sunrise
+
+        let sys3 = document.createElement("p")
+        sys3.innerHTML ="sunset: "+data.sys.sunset
+
+        let id = document.createElement("p")
+        id.innerHTML = "id: "+data.id
+
+        let main1 = document.createElement("p")
+        main1.innerHTML ="temp: " + data.main.temp
+
+        var main2 = document.createElement("p")
+        main2.innerHTML ="temp_min: "+   data.main.temp_min
+
+        var wind1 = document.createElement("p")
+        wind1.innerHTML = "wind speed: "+data.wind.speed
+
+        var wind2 = document.createElement("p")
+        wind2.innerHTML = "wind deg: "+data.wind.deg
+
+        var wind3 = document.createElement("p")
+        wind3.innerHTML = "wind gust: "+data.wind.gust
+
+        document.querySelector("#output").append(text,sys2,sys3,id,main1,main2,wind1,wind2,wind3)
+
+        let city = document.getElementById("input").value
+
+        map.src="https://www.google.com/maps/embed/v1/place?key=&q=Space+Needle,Seattle+WA"
+
+        document.querySelector(".gmap_canvas").append(map)
+    }
+
+    function displayerror(data){
+        document.getElementById("output").innerHTML = ""
+
+        var message = document.createElement("h5")
+        message.innerHTML ="message: City not Found"
+
+        document.querySelector("#output").append(message)
+    }
+</script>

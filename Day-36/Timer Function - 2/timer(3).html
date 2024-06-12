@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer-3</title>
+    <!-- remix icon cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.css"
+        integrity="sha512-Zh5KB6wI5ADHaLaez5ynrzxR6lAswuNfhlXdcdhxsvOUghvf02zU1dAsOC6JrBTWbkE1WNDNs5Dcfz493fDMhA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- remix icon cdn -->
+    
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        section{
+            width: 80%;
+            height: 200px;
+            border: 1px solid lightgray;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 10%;
+            margin-top: 5%;
+            box-shadow: 1px 1px 8px 3px lightgray;
+        }
+
+        div{
+            text-align: center;
+            width: 160px;
+            height: 150px;
+            border: 1px solid black;
+            padding-top: 15px;
+        }
+                
+        i{
+            font-size: 35px;
+            color: aqua;
+            font-weight: bolder;
+        }
+
+        h5{
+            color: darkgray;
+        }
+
+        h4{
+            border-radius: 30px;
+            width: 70px;
+            padding-top: 4.5px;
+            height: 22px;
+            margin-left: 45px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <i class="ri-community-line"></i>
+            <h5>Real Estate</h5>
+            <h4 id="realcount">0</h4>
+        </div>
+        <div>
+            <i class="ri-book-2-fill"></i>
+            <h5>Books & Magazines</h5>
+            <h4 id="bookcount">0</h4>
+        </div>
+        <div>
+            <i class="ri-armchair-fill"></i>
+            <h5>Furniture</h5>
+            <h4 id="Furniturecount">0</h4>
+        </div>
+        <div>
+            <i class="ri-lightbulb-flash-fill"></i>
+            <h5>Electronics</h5>
+            <h4 id="elecount">0</h4>
+        </div>
+        <div>
+            <i class="ri-taxi-fill"></i>
+            <h5>Car & Vehicles</h5>
+            <h4 id="carcount">0</h4>
+        </div>
+        <div>
+            <i class="ri-bread-line"></i>
+            <h5>Other</h5>
+            <h4 id="othercount">0</h4>
+        </div>
+    </section>
+</body>
+</html>
+<script>
+    var real = document.getElementById("realcount")
+    var book = document.getElementById("bookcount")
+    var Furniture = document.getElementById("Furniturecount")
+    var car = document.getElementById("carcount")
+    var ele = document.getElementById("elecount")
+    var other = document.getElementById("othercount")
+
+    var realcounter = 0
+    var bookcounter = 0
+    var furniturecounter = 0
+    var carcounter = 0
+    var elecounter = 0
+    var othercounter = 0
+
+    setInterval(()=>{
+
+        realcounter++
+        bookcounter++
+        furniturecounter++
+        carcounter++
+        elecounter++
+        othercounter++
+
+        if(realcounter >= 1000){
+            realcounter = 1000
+        }
+        if(bookcounter >= 400){
+            bookcounter = 400
+        }
+        if(furniturecounter >= 550){
+            furniturecounter = 550
+        }
+        if(carcounter >= 1020){
+            carcounter = 1020
+        } 
+        if(elecounter >= 850){
+            elecounter = 850
+        }
+        if(othercounter >= 120){
+            othercounter = 120
+        }
+
+        real.innerHTML = realcounter
+        book.innerHTML = bookcounter
+        Furniture.innerHTML = furniturecounter
+        car.innerHTML = carcounter
+        ele.innerHTML = elecounter
+        other.innerHTML = othercounter
+
+    },-5000)
+</script>

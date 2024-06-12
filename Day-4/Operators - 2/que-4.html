@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Calculation</title>
+</head>
+<body>
+    <center>
+        <label for="">Basic salary</label><br>
+        <input type="text" placeholder="Salary" id="i1">
+        <br><br>
+
+        <label for="">Bonus amount</label><br>
+        <input type="text" placeholder="Bouns" id="i2">
+        <br><br>
+
+        <label for="">Housing allowance</label><br>
+        <input type="text" placeholder="HRF" id="i3">
+        <br><br>
+
+        <label for="">Deduct paid leave days</label><br>
+        <input type="text" placeholder="D.pay" id="i4">
+        <br><br>
+
+        <label for="">Deduct income tax</label><br>
+        <input type="text" placeholder="Tax" id="i5">
+        <br><br>
+
+        <label for="">Deduct medical insurance</label><br>
+        <input type="text" placeholder="Med. Ins." id="i6">
+        <br><br>
+
+        <label for="">Deduct Provident Fund (PF)</label><br>
+        <input type="text" placeholder="P.fund" id="i7">
+    </center>
+</body>
+</html>
+<script>
+    let a= document.getElementById("i1").value
+    let b= document.getElementById("i2").value
+    let c= document.getElementById("i3").value
+    let d= document.getElementById("i4").value
+    let e= document.getElementById("i5").value
+    let f= document.getElementById("i6").value
+    let g= document.getElementById("i7").value
+
+    let Total_salary = +a + +b - +c - +d - +e - +f - +g
+    
+    console.log(Total_salary)
+</script> 

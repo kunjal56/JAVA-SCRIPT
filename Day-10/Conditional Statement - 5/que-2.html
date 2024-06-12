@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <hr>
+        <input type="number" id="i1">
+        <input type="number" id="i2">
+    
+        Add: <input type="radio" name="operation" value="add">
+        Subtract: <input type="radio" name="operation" value="subtract">
+        Multiply: <input type="radio" name="operation" value="multiply">
+        Divide: <input type="radio" name="operation" value="divide">
+    
+        <h1 id="ans"></h1>
+        
+        <hr>
+    </center>
+
+    <script>
+            let a = parseFloat(document.getElementById("i1").value);
+            let b = parseFloat(document.getElementById("i2").value);
+            let radios = document.getElementsByName("operation");
+            let operation;
+            for (let i = 0; i < radios.length; i++){
+                if (radios[i].checked) {
+                    operation = radios[i].value;
+                    break;
+                }
+            }
+            switch (operation) {
+                case "add":
+                    document.getElementById("ans").innerText = a+b
+                    break;
+                case "subtract":
+                    document.getElementById("ans").innerText = a-b
+                    break;
+                case "multiply":
+                    document.getElementById("ans").innerText = a*b
+                    break;
+                case "divide":
+                    document.getElementById("ans").innerText = a/b
+                    break;
+                default:
+                    document.getElementById("ans").innerText ="Select an operation."
+            }
+    </script>
+</body>
+</html>

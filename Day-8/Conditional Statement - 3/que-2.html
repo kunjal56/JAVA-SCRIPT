@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+<body>
+    <center>
+        <br>
+    <label for="">Enter the weight</label>
+    <input type="number" name="" id="i1">
+    <br><br>
+    <label for="">Enter the height</label>
+    <input type="number" name="" id="i2">
+    <h3 id="ans"></h3>
+</center>
+</body>
+<script>
+    let w = document.getElementById("i1").value
+    let h = document.getElementById("i2").value
+    BMI = w/(h*h);
+   if(w=="" && h==""){
+    document.getElementById("ans").innerHTML="";
+   }
+   else{
+    if(BMI<=18.5){
+        document.getElementById("ans").innerHTML="Underweight";
+    }
+    else if(BMI>18.5 && BMI<24.9){
+        document.getElementById("ans").innerHTML="Normal weight";
+    }
+    else if(BMI>25 && BMI<29.9){
+        document.getElementById("ans").innerHTML="Over weight";
+    }
+    else{
+        document.getElementById("ans").innerHTML="Obese";
+    }
+   }
+</script>
+</html> 

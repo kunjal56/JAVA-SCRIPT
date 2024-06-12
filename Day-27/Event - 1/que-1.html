@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 class="green">First</h1>
+    <h1 class="blue">Second</h1>
+    <h1 class="red">Third</h1>
+
+    <button id="one">click here </button>
+
+    <h3 class="green">First</h3>
+    <h3 class="blue">Second</h3>
+    <h3 class="red">Third</h3>
+    <button onclick="h3change()">click for h3</button>
+
+    <h5 class="green">First</h5>
+    <h5 class="blue">second</h5>
+    <h5 class="red">third</h5>
+    <button onclick="h5change()">click for h5</button>
+
+    <br><br>
+    <button onclick="selectgreen()" >click to green</button>
+    <button onclick="selectblue()">click to blue</button>
+    <button onclick="selectred()">click to red</button>
+    
+
+</body>
+</html>
+<script>
+
+    document.querySelector('#one').addEventListener("click",h1change)
+
+    function h1change(){
+        var red = document.querySelector('h1')
+        red.style.color = "red"
+    }
+    function h3change(){
+        var green = document.querySelectorAll('h3')
+        for(let i=0;i<green.length;i++){
+            green[i].style.color = "green"
+        }
+    }
+    function h5change(){
+        var blue = document.querySelectorAll('h5')
+        for(let i=0;i<blue.length;i++){
+            blue[i].style.color = "blue"
+        }
+    }
+
+function selectgreen(){
+    var allgreen = document.querySelectorAll('.green')
+    
+    for(let i=0;i<allgreen.length;i++){
+        allgreen[i].style.color = "green"
+    }
+}
+
+selectblue = () => {
+    var allblue = document.querySelectorAll('.blue')
+
+    for(let i = 0;i<allblue.length;i++){
+        allblue[i].style.color = "blue"
+    }
+} 
+
+let selectred = function(){
+    var allred = document.querySelectorAll('.red')
+
+    for(let i = 0;i<allred.length;i++){
+        allred[i].style.color = "red"
+    }
+}
+
+
+</script>

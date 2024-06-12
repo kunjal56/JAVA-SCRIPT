@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculation of Array(PROJECT)</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let num = [12,5,13,80,55,99]
+
+    let largesteven = num.filter((el)=>{
+        return el % 2 == 0
+    })
+    let numbers = num.forEach((el)=>{
+        return 
+    })
+    console.log("EVEN NUMBERS: ", largesteven)
+    console.log("Largest no.is", numbers)
+    
+
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    let arr = [5,12,13,19,55,96,102];
+
+    function getMaxOutOfAnArray(arr) {
+        let maxNumber = -Infinity;
+    arr.forEach(number => { maxNumber =  number > maxNumber ? number :  maxNumber; })
+    console.log(maxNumber);
+}
+
+getMaxOutOfAnArray(arr);
+
+</script>

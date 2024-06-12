@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider(2)</title>
+</head>
+<body>
+    <section>
+        <img src="Image/h1_hero1.jpg" alt="">
+        <img src="Image/h1_hero2.jpg" alt="">
+    </section>
+
+    <button onclick="previous()"><i class="ri-arrow-left-s-line"></i></button>
+    <button onclick="next()"><i class="ri-arrow-right-s-line"></i></button>
+</body>
+</html>
+
+<script>
+    let slider = document.querySelectorAll("img")
+    let indexofSlider = 0
+
+    function slider_one(index){
+        for(let i=0 ; i <= slider.length ; i++){
+            slider[i].style.display = "none"
+        }
+        slider[index].style.display = "block"
+    }
+
+    function showImgSlider(){
+        setInterval (()=>{
+            slider_one(indexofSlider)
+            indexofSlider ++
+
+            if(indexofSlider >= slider.length){
+            indexofSlider = 0
+         }
+        },1000)
+    }
+    showImgSlider()
+    slider_one(indexofSlider)
+</script>

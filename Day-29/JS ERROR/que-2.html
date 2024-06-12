@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-empty String**</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function strCheck(str){
+        if(str ===""){
+            throw new Error("Enter valid string !")
+        }else{
+            console.log("Successful !!",str)
+        }
+    }
+    try{
+        strCheck ("")
+    }catch (e){
+        console.log("Error : ", e)
+    }
+</script>

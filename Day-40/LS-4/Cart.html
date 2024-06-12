@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #product{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #pic{
+            /* width: 150px; */
+            height: 200px;
+        }
+        #productdiv{
+            width: 23%;    
+        }
+    </style>
+</head>
+<body>
+    <select name="" id="sortsec">
+        <option value="">Add filter</option>
+        <option value="high">High to Low</option>
+        <option value="low">Low to High</option>
+        <option value="atoz">A to Z</option>
+        <option value="ztoa">Z to A</option>
+    </select><br><br><br>
+    <div id="product"></div>
+</body>     
+</html>
+<script>
+
+    let productdata = [
+        {
+            image : "https://m.media-amazon.com/images/I/71dEY4Neo3L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "a realme narzo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 8450,
+            rate : "⭐⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61uUEqO5uQL._AC_UL480_FMwebp_QL65_.jpg",
+            title : "z  narPOCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 21050,
+            rate : "⭐⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/813sVzTfvaL._AC_UL480_FMwebp_QL65_.jpg",
+            title : "n realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6999,
+            rate : "⭐⭐⭐",
+        },
+        {
+            image : "https://m.media-amazon.com/images/I/61G6ef-AH-L._AC_UL480_FMwebp_QL65_.jpg",
+            title : "q realme narPOSamsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 Octa-coreCO C51 (Royal Blue, 6GB RAM, 128GB Storage)zo N53 (Feather Gold, 4GB+64GB) 33W Segment Fastest Charging | Slim Smartphone | 90 Hz Smooth Display",
+            price : 6499,
+            rate : "⭐⭐⭐⭐⭐",
+        }
+    ]
+
+    function product(productdata){
+        document.getElementById("product").innerHTML = ""
+        productdata.map((item)=>{
+                let div = document.createElement("div")
+                div.setAttribute("id","productdiv")
+                
+                let images = document.createElement("img")
+                images.setAttribute("src",item.image)
+                images.setAttribute("id","pic")
+                images.setAttribute("width","150px")
+
+                let name = document.createElement("h3")
+                name.innerHTML = item.title
+
+                let rupees = document.createElement("h2")
+                rupees.innerHTML = "₹ "+ item.price
+
+                let rating = document.createElement("h4")
+                rating.innerHTML = item.rate
+
+                let btn = docu` ment.createElement("button")
+                btn.innerHTML = "ADD TO CART"
+
+                div.append(images,name,rupees,rating,btn)
+                document.querySelector("#product").append(div)
+        })
+    }
+    product(productdata)
+
+
+    let sortproduct = document.getElementById("sortsec")
+    sortproduct.addEventListener("change",()=>{
+        let selectedproduct = sortproduct.value 
+
+        let selectedproductvalue = []
+
+        if(selectedproduct === "high"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>b.price - a.price)
+        }
+        else if(selectedproduct === "low"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>a.price - b.price)
+        }
+        else if(selectedproduct === "atoz"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>a.title.localeCompare(b.title))
+        }
+        else if(selectedproduct === "ztoa"){
+            selectedproductvalue = productdata.slice().sort((a,b)=>b.title.localeCompare(a.title))
+        }
+        else{
+            selectedproductvalue = productdata.slice()
+        }
+
+        product(selectedproductvalue)
+    })
+
+</script>

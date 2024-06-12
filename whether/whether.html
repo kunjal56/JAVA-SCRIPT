@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <!-- bootstrap cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="weatherAPI-style.css">
+</head>
+<body> 
+    <div id="sec1">
+        <center>
+   <input type="text" placeholder="Enter Your City Name : " id="input">
+    <button  onclick="fetchdata()">search</button> 
+</center>
+   </div>
+   <div id="main">
+    <div id="output"></div>
+    
+    <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe></div></div>
+
+    </div>
+</body>
+</html>
+<script>
+    function fetchdata(){
+        let name = document.getElementById("input").value;
+        var Api_Key = "4c2f6e9be943f30c2ff26e18681b6c2b";
+        // fetch("https://api.openweathermap.org/data/2.5/weather?q=${name}&exclude=current,daily,hourly,minutely&units=metric&appid=${Api_Key}")
+        fetch("https://api.openweathermap.org/data/3.0/onecall?lat=${name}&exclude=current,daily,hourly,minutely&units=metric&appid=${Api_Key}")
+        .then(function(res){
+            return res.json()
+        }).then(function(json){
+            console.log(json)
+            displaydata(json)
+        }).catch(function(json){
+            console.log(json)
+            displayerror(json)
+        })
+    }
+    function displaydata(data){
+        let map = document.getElementById("gmap_canvas")
+        document.getElementById("output").innerHTML = ""
+        var text = document.createElement("h4")
+        text.innerHTML ="City: "+ data.name
+
+        var sys1 = document.createElement("p")
+        sys1.innerHTML ="country: "+data.sys.country
+
+        var sys2 = document.createElement("p")
+        sys2.innerHTML ="sunrise: "+data.sys.sunrise
+
+        var sys3 = document.createElement("p")
+        sys3.innerHTML ="sunset: "+data.sys.sunset
+
+        var id = document.createElement("p")
+        id.innerHTML = "id: "+data.id
+
+        var main1 = document.createElement("p")
+        main1.innerHTML ="temp: "+data.main.temp
+
+        var main2 = document.createElement("p")
+        main2.innerHTML ="feels_like: "+data.main.feels_like
+
+        var main3 = document.createElement("p")
+        main3.innerHTML ="temp_min: "+   data.main.temp_min
+
+        var visibility = document.createElement("p")
+        visibility.innerHTML = "Visibility : "+data.visibility
+
+        var timezone = document.createElement("p")
+        timezone.innerHTML = "timezone : " + data.timezone
+
+        var weather1 = document.createElement("p")
+        weather1.innerHTML = "weather main: "+data.weather.main
+
+        var weather2 = document.createElement("p")
+        weather2.innerHTML = "weather description: "+data.weather.description
+
+        var weather3 = document.createElement("p")
+        weather3.innerHTML = "weather length: "+data.weather.length
+
+        var wind1 = document.createElement("p")
+        wind1.innerHTML = "wind speed: "+data.wind.speed
+
+        var wind2 = document.createElement("p")
+        wind2.innerHTML = "wind deg: "+data.wind.deg
+
+        var wind3 = document.createElement("p")
+        wind3.innerHTML = "wind gust: "+data.wind.gust
+
+       
+        document.querySelector("#output").append(text,sys1,sys2,sys3,id,main1,main2,main3,visibility,timezone,weather1,weather2,weather3,wind1,wind2,wind3)
+
+        let city = document.getElementById("input").value
+
+        map.src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30765359.58719038!2d61.026612682768!3d19.73232418708338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1706609795485!5m2!1sen!2sin";
+
+        document.querySelector(".gmap_canvas").append(map)
+        
+    }
+    function displayerror(data){
+        document.getElementById("output").innerHTML = ""
+        var cod = document.createElement("h5")
+        cod.innerHTML ="code: 404"
+
+        var message = document.createElement("h5")
+        message.innerHTML ="message: City not Found"
+
+        document.querySelector("#output").append(cod,message)
+    }
+</script>

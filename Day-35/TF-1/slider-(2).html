@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        section{
+            width: 100%;
+            height: 500px;
+            position: relative;
+            /* border: 1px solid black; */
+        }
+        section img{
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #pre{
+            position: absolute;
+            top: 32%;
+            left: 10px;
+        }
+        #nxt{
+            position: absolute;
+            right: 10px;
+            top: 32%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.1/remixicon.css" integrity="sha512-ZH3KB6wI5ADHaLaez5ynrzxR6lAswuNfhlXdcdhxsvOUghvf02zU1dAsOC6JrBTWbkE1WNDNs5Dcfz493fDMhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+   <section>
+        <img src="Image/h1_hero1.jpg" alt="">
+        <img src="Image/h1_hero2.jpg" alt="">
+    </section>
+
+    <button onclick="PrevSlide()" id="pre"><i class="ri-arrow-left-fill"></i></button>
+    <button onclick="NextSlide()" id="nxt"><i class="ri-arrow-right-fill"></i></button>
+</body>
+</html>
+<script>
+    let sliders = document.querySelectorAll("img");
+    let Slider = 0;
+
+    function slider_one(index) {
+        for (let i = 0; i < sliders.length; i++) {
+            sliders[i].style.display = "none";
+        }
+        sliders[index].style.display = "block";
+    }
+    
+    function auto() {
+        setInterval(() => {
+            slider_one(Slider);
+            Slider++;
+            if (Slider >= sliders.length) {
+                Slider = 0;
+            }
+        }, 2000);
+    }
+
+    function NextSlide() {
+        Slider = Slider + 1;
+        if (Slider >= sliders.length) {
+            Slider = 0;
+        }
+        slider_one(Slider);
+    }
+
+    function PrevSlide() {
+        Slider = Slider - 1;
+        if (Slider < 0) {
+            Slider = sliders.length - 1;
+        }
+        slider_one(Slider);
+    }
+    auto();
+    slider_one(Slider);
+</script>

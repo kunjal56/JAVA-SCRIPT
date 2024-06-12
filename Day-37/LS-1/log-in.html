@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In form</title>
+</head>
+<body>
+    <center>
+        <form action="" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px;" id="login">
+
+            
+            <label for="">Email_id</label>
+            <input type="email" name="" id="" placeholder="email" id="log-mail">
+            <br><br>
+            
+            <label for="">Password</label>
+            <input type="password" placeholder="password" id="log-ps">
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </center>
+</body>
+<script>
+    let login = document.getElementById("login")
+
+    login.addEventListener("submit", function(event){
+        event.preventDefault()
+
+        var email = document.getElementById("log-mail").value
+        var password = document.getElementById("log-ps").value
+
+    })
+           
+</script>
+</html>

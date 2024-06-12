@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter the amount</label><br>
+        <input type="text" placeholder="amount" id="amt">
+        <br>
+        <br>
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let amount = document.getElementById("amt").value
+
+    if(amount == ""){
+        document.getElementById("ans").innerHTML=""
+    }else if(amount<=10000){
+        if(amount=amount*5/100){
+        document.getElementById("ans").innerHTML= "GST is 5% + amount"
+        }
+    }else if(amount<=20000){
+        if(amount=amount*10/100){
+        document.getElementById("ans").innerHTML= "GST is 10% + amount"
+        }
+    }else if(amount<=30000){
+        if(amount=amount*15/100){
+        document.getElementById("ans").innerHTML= "GST is 15% + amount"
+        }
+    }else if(amount<=40000){
+        if(amount=amount*20/100){
+        document.getElementById("ans").innerHTML= "GST is 20% + amount"
+        }
+    }else if(amount>40000){
+        if(amount=amount*25/100){
+        document.getElementById("ans").innerHTML= "GST is 25% + amount"
+        } 
+    }else{
+        document.getElementById("ans").innerHTML= "unvalid"
+    }
+
+</script>

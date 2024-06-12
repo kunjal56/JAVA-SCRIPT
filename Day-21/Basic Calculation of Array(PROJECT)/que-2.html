@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let num = [5,8,12,22,35,55]
+
+    let even=num.filter((el)=>{
+        return el % 2 == 0
+    })
+    // let sum=num.indexOf((even)=>{
+    //     return even*2
+    // })
+
+    console.log(even)
+    console.log()
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let num = [2,5,3,4,8];
+
+    function sumSquaresEven(arr) {
+    return arr.filter(num => num % 2 === 0)
+    .map(num => num * num)
+    .reduce((sum, square) => sum + square);
+}
+let ans = sumSquaresEven(num);
+console.log("The sum of squares of even numbers is:", ans); 
+</script>
+
+

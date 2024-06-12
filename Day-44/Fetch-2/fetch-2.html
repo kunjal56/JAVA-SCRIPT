@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch-2</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        input {
+            width: 30%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="movieInput" placeholder="Search movie name">
+        <button onclick="searchMovie()">Search</button>
+        <div id="movieDetails"></div>
+    </div>
+
+    <script>
+      function searchMovie() {
+    let apiKey = '38ed9ceb';
+    let movieTitle = document.getElementById('movieInput').value;
+
+    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${movieTitle}`)
+        .then(response => response.json())
+        .then(movieData => {
+            console.log(movieData);
+            displayMovieDetails(movieData);
+        });
+    }
+
+        function displayMovieDetails(movieData) {
+            let movie = document.getElementById('movieDetails');
+            movie.innerHTML = '';
+
+            if (movieData.Response === 'True') {
+                let detail = document.createElement('div');
+
+                let title = document.createElement('h2');
+                title.textContent = movieData.Title;
+
+                let plot = document.createElement('p');
+                plot.textContent = movieData.Plot;
+
+                let poster = document.createElement('img');
+                poster.src = movieData.Poster;
+                poster.alt = `${movieData.Title} Poster`;
+
+                let year = document.createElement('p');
+                year.textContent = `Year: ${movieData.Year}`;
+
+                detail.append(title, plot, poster, year);
+
+                movie.append(detail);
+            } else {
+                let errorParagraph = document.createElement('p');
+                errorParagraph.textContent = movieData.Error;
+                movie.append(errorParagraph);
+            }
+        }
+    </script>
+</body>
+</html>

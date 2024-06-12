@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-2</title>
+</head>
+<body>
+    <center>    
+        <br><br><br>    
+    <button onclick="strtguiter()">click for Guitar</button>
+    <button onclick="strtpiano()">click for piano</button>
+
+    <h3 id="ans"></h3>
+    </center>
+
+</body>
+</html>
+<script>
+    class Instrument{
+    playSound(){
+        document.getElementById("ans").innerHTML = ("")
+    }
+}
+
+class Guitar extends Instrument{
+    playSound(){
+        document.getElementById("ans").innerHTML = "Strumming the guitar strings"
+    }
+}
+class Piano extends Instrument{
+    playSound(){
+        document.getElementById("ans").innerHTML = "Pressing the piano keys"
+    }
+}
+
+
+const Guitar_ins = new Guitar
+const Piano_ins = new Piano
+
+function strtguiter(){
+    Guitar_ins.playSound()
+}
+
+function strtpiano(){
+    Piano_ins.playSound()
+}
+
+
+</script>

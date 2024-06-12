@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Pricing</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter any value</label>
+        <br>
+        <input type="text" placeholder="value" id="tick">
+        <br><br>
+
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let person=document.getElementById("tick").value
+
+    if(person==""){
+        document.getElementById("ans").innerHTML=""
+    }else if(person>=0 && person<=12){
+        document.getElementById("ans").innerHTML="for students, charge to pay $8"
+    }else if(person>=13 && person<=64){
+        document.getElementById("ans").innerHTML="for adults, charge to pay $15"
+    }else if(person>=65){
+        document.getElementById("ans").innerHTML="For senior, citize charge to pay $10"
+    }else{
+        document.getElementById("ans").innerHTML="unvalid"
+    }
+</script>

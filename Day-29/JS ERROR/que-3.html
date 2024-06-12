@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Eligibility**</title>
+</head>
+<body>
+    <center>
+        <h4>Enter number of Age :</h4>
+        <input type="number" id="age" placeholder="Enter Your age"><br><br>
+    </center>
+</body>
+</html>
+<script>
+
+    let age = document.querySelector('#age').value
+
+    function CheckAge(voteage){
+        if(voteage < 18){
+            throw new Error ("Not eligible to vote")
+        }else{
+            console.log("You're eligible to vote !")
+        }
+    }
+    
+    try{
+        CheckAge(age)
+    }catch(e){
+        console.log("Error :", e.message)
+    }
+</script>
+
+
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-2</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter number of Age</label>
+        <br><br>
+
+        <input type="number" placeholder="age" id="i-1">
+
+        <br><br>
+        <!-- <h3 id="ans"></h3> -->
+        <br>
+        <hr>
+        <br>
+        <button onclick="checkAge()">Check here</button>
+        <p id="result"></p>
+
+    </center>
+</body>
+</html>
+<script>
+    var age = document.getElementById("i-1").value
+    var output = document.getElementById("result");
+
+    function checkage(){
+        var age 
+        if (age > 18) {
+            document.getElementById("result").innerHTML=" You can drive in India!"
+        }else if (age < 18) {
+            document.getElementById("result").innerHTML=" You can not drive in India!"
+        } else {
+            document.getElementById("result").innerHTML="You are just old enough to drive in India!"
+        }
+    }
+</script>

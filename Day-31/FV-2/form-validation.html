@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM VALIDATIONl</title>
+
+        <!-- j-query cdn  -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <!-- j-query cdn  -->
+</head>
+<body>
+    <center>
+        <form action="" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <h2>Registration Form</h2>
+            <label for="">Enter Your Name* </label>
+            <input type="text" id="name">
+            <br><br>
+            <label for="">Enter Email* </label>
+            <input type="text" id="email">
+            <br><br>
+            <label for="">Mobile No.* </label>
+            <input type="text" id="ph_no">
+            <br><br>
+            <label for="">Enter Password*</label>
+            <input type="text" id="paswrd">
+            <br><br>
+            <label for="">Confrim Password* </label>
+            <input type="text" id="cnfrmpsw">
+            <br><br><br>
+            <button type="submit" style="padding: 5px 15px;">Submit</button>
+        </form>
+    </center>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        isValid = true
+
+        $("#name").submit(function(){
+            var name = $("#name").val();
+            // || !/\d/.test(name)
+            if(name === ""){
+                isValid = false
+                alert ("Re-enter Name")
+            }
+
+            var email = $("#email").val();
+            if(email === ""){
+                isValid = false
+            }else if(!email.endswith("@gmail.com")){
+                isValid = false
+                alert("Incorrect ending of Email")
+            }
+
+            var phnrgx = /^\d{10}$/
+            var mobile = $("#ph_no").val()
+
+            if(mobile === "" || !phnrgx.test(mobile)){
+                isValid = false;
+                alert("Enter valid Mobile number")
+            }
+
+            var password = $("#paswrd").val();
+			var confirm = $("#cnfrmpsw").val();
+
+            if(password != confirm){
+                isValid = false
+                alert("Entered Password is Incorrect , re-enter it!")
+            }
+            else if(!name==="" || !email==="" || email.endsWith("@gmail.com") || !mobile === "" || phnrgx.test(mobile) || password == confirm)
+				{
+					alert("Detailed Saved Successfully");
+				}
+        });
+    });
+</script>

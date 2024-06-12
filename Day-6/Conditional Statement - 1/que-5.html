@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Identifier</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter any Year</label>
+        <br>
+        <input type="text" placeholder="value" id="yrs">
+        <br><br>
+
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let leap=document.getElementById("yrs").value
+    if(leap == ""){
+        document.getElementById("ans").innerHTML="";
+    }
+    else if(leap%4==0){
+        document.getElementById("ans").innerHTML="This year is a leap year !"
+    }else{
+        document.getElementById("ans").innerHTML="It's not a leap year !"
+    }
+
+</script>

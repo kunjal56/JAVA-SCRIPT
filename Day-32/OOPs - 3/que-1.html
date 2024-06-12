@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-1</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class car{
+        //parent
+        constructor(brand , color, price){
+            this.brand = brand
+            this.color = color
+            this.price = price
+        }
+    }
+    
+    class elecar extends car {
+            constructor (brand , color, price, average){
+                super (brand , color , price,average)
+                this.average = average
+            }
+            averageofcar(){
+                console.log(this.average)
+            }
+        }
+
+    const vehical = new car("CRETA" , "BLACK" , "15 lakh")
+    const ele = new elecar("CRETA" , "BLACK" , "15 lakh","50 km")
+    
+    console.log(vehical)
+    console.log("Car Information : ");
+    console.log(`brand: ${vehical.brand}`);
+    console.log(`Color: ${vehical.color}`);
+    console.log(`Prise: ${vehical.price}`);
+    console.log(`average: ${vehical.average}`);
+
+
+    ele.averageofcar()
+
+</script>

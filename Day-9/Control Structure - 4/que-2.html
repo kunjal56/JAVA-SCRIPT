@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que-2</title>
+</head>
+<body>
+    <center>
+        <br>
+        <label for="">Enter value</label>
+        <br><br>
+        <input type="text" placeholder="value" id="i">
+        <br><br><br>
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let number = document.getElementById('i').value
+
+    if(number == ""){
+        document.getElementById("ans").innerHTML=""
+    }else{
+        if(number % 5 == 0){
+            document.getElementById("ans").innerHTML="here the value is devided by 5 !"
+        }else if(number % 7 == 0){
+            document.getElementById("ans").innerHTML="here the value is devided by 7 !"
+        }else{
+            document.getElementById("ans").innerHTML="given number is not devided by 5 or 7 !"
+        }
+    }
+</script>

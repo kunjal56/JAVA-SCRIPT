@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Products </title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: inherit;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            /* border: 6px solid  black; */
+            border-radius: 20px 20px 20px 20px;
+        }
+        .sub{
+            margin-top: 10px;
+            flex-basis: 24%;
+            height: 500px;
+            padding: 5px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px 20px 20px 20px;
+        }
+        .sub img{
+            width: 80%;
+            height: 250px;
+        }
+        h3{
+            font-size: 20px;
+            text-align: center;
+            font-family: monospace;
+            font-family: 'Ysabeau SC', sans-serif;
+        }
+        p{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: monospace;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="main">
+
+    </div>
+    
+</body>
+</html>
+<script>
+
+    fetch("https://fakestoreapi.com/products?limit=40")
+    .then(res=>res.json())
+    .then(json=>display(json))
+
+   function display(json){
+        json.map((item)=>{
+
+            let div=document.createElement("div")
+
+            div.setAttribute("class","sub")
+
+            let image=document.createElement("img")
+
+            image.setAttribute("src",item.image)
+
+            let h5=document.createElement("h3")
+
+            h5.innerText=item.title
+
+            let category=document.createElement("p")
+
+            category.innerText=item.category
+
+            div.append(image,h5,category)
+
+            document.querySelector(".main").append(div)
+
+        })
+    }
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd/Even Checker</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter any Value</label>
+        <br>
+        <input type="text" placeholder="value" id="odd">
+        <br><br>
+
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let number=document.getElementById("odd").value
+    if(number%2==0){
+        document.getElementById("ans").innerHTML="here is a even number";
+    }else{
+        document.getElementById("ans").innerHTML="here is a odd number";
+    }
+</script>

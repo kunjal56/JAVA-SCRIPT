@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <center>
+        <hr>
+        <h2>Custom Animal Sounds</h2>
+
+        <label for="dogName">Enter Dog's Name:</label>
+        <input type="text" id="dogName" required>
+        <br>
+        <label for="catName">Enter Cat's Name:</label>
+        <input type="text" id="catName" required>
+        <br>
+        <label for="birdName">Enter Bird's Name:</label>
+        <input type="text" id="birdName" required>
+        <br>
+        <button onclick="makeCustomAnimalSounds()">Make Custom Animal Sounds</button>
+
+        <div id="Sounds"></div>
+        <hr>
+    </center>
+
+    <script>
+        class Animal {
+            makeSound() {
+                throw new Error("makeSound() method must be implemented in subclasses.");
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name) {
+                super();
+                this.name = name;
+            }
+
+            makeSound() {
+                return `${this.name} says: Woof! Woof!`;
+            }
+        }
+
+        class Cat extends Animal {
+            constructor(name) {
+                super();
+                this.name = name;
+            }
+
+            makeSound() {
+                return `${this.name} says: Meow!`;
+            }
+        }
+
+        class Bird extends Animal {
+            constructor(name) {
+                super()
+                this.name = name;
+            }
+
+            makeSound() {
+                return `${this.name} says: Tweet! Tweet!`;
+            }
+        }
+
+        function makeCustomAnimalSounds() {
+            const dogName = document.getElementById("dogName").value;
+            const catName = document.getElementById("catName").value;
+            const birdName = document.getElementById("birdName").value;
+
+            const dog = new Dog(dogName);
+            const cat = new Cat(catName);
+            const bird = new Bird(birdName);
+
+            const Sounds = document.getElementById("Sounds");
+            Sounds.innerHTML = `
+                <p>${dog.makeSound()}</p>
+                <p>${cat.makeSound()}</p>
+                <p>${bird.makeSound()}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

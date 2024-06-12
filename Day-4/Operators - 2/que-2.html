@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Bill Calculation</title>
+</head>
+<body>
+    <center>
+    <h3>Invoice</h3>
+    <lable>Amount of Product 1</lable>
+    <br>
+    <input type="text" placeholder="Amount" id="i1">
+    <br><br>
+
+    <lable>Amount of Product 2</lable>
+    <br>
+    <input type="text" placeholder="Amount" id="i2">
+    <br><br>
+
+    <lable>Amount of Product 3</lable>
+    <br>
+    <input type="text" placeholder="Amount" id="i3">
+    <br><br>
+
+    <lable>Amount of Product 4</lable>
+    <br>
+    <input type="text" placeholder="Amount" id="i4">
+    <br><br>
+    <!-- <input type="button" id="i5"> -->
+
+    </center>
+</body>
+</html>
+<script>
+    let a=document.getElementById("i1").value
+    let b=document.getElementById("i2").value
+    let c=document.getElementById("i3").value
+    let d=document.getElementById("i4").value
+
+    let Total_bill = +a + +b + +c + +d;
+   
+    let GST=5
+    let gst_amount = Total_bill*GST/100
+
+    let service=10
+    let serv_amount = Total_bill*service/100
+
+    let net_bill = Total_bill + gst_amount +  serv_amount
+
+    console.log("Total Bill:", Total_bill);
+    console.log("GST:", gst_amount);
+    console.log("Service Tax:", serv_amount);
+    console.log("Net Bill:", net_bill);
+
+    // document.write("Total Bill :", Total_bill)
+    // document.write("GST : ", gst_amount)
+    // document.write("Service Tax : ", serv_amount)
+    // document.write("Net Bill : ", net_bill)
+
+</script>

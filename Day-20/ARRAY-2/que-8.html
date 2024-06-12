@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and filter</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let words = ["Tree", "Flowers", "Animals", "Birds"];
+    let wordLengths = words.map((word) => {
+        return word.length
+    })
+    let Odd = words.filter((word) =>{
+        return word.length % 2 !== 0
+    })
+    console.log("Original words:", words);
+    console.log("Word lengths:", wordLengths);
+    console.log("Words with odd lengths:", Odd);
+</script>

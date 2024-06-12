@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Checker</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter the temperature</label><br>
+        <input type="text" placeholder="degrees" id="temp">
+        <br><br>
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+let temperature=document.getElementById("temp").value
+    
+    if(temperature>=80){
+        document.getElementById("ans").innerHTML="Yes, it's hot !!"
+    }else{
+        document.getElementById("ans").innerHTML="No, it's not hot."
+    }
+</script>

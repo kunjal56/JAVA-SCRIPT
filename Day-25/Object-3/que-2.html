@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorize Quotes</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let Quotes = [
+        {
+            Text : "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
+            author : "Thomas A. Edison",
+            category : "Life"
+        },
+        {
+            Text : "Education’s purpose is to replace an empty mind with an open one",
+            author : "Malcolm Forbes",
+            category : "Education"
+        },
+        {
+            Text : "Success is the sum of small efforts - repeated day in and day out." ,
+            author : "Robert Collier",
+            category : "Success"
+        },
+        {
+            Text : "A day without a friend is like a pot without a single drop of honey left inside.",
+            author : "Winnie the Pooh",
+            category : "Friendship"
+        },
+        {
+            Text : "I like freedom. I wake up in the morning and say, ‘I don’t know, should I have a popsicle or a donut?’ You know, who knows?",
+            author : "Oscar Nunez",
+            category : "Funny"
+        }
+
+    ]
+    let arr = []
+    for(let i=0 ; i < Quotes.length ; i++){
+        if(Quotes[i].category === "Education"){
+            arr.push(Quotes[i].Text)
+        }
+    }
+    console.log(arr)
+</script>

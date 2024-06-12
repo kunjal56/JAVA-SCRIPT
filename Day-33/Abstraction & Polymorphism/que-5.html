@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <center>
+        <hr>
+        <label for="num1">Enter Number 1:</label>
+        <input type="number" id="num1" required>
+        <br>
+        <label for="num2">Enter Number 2:</label>
+        <input type="number" id="num2" required>
+        <br>
+        <button onclick=" Subtraction()">Subtraction</button>
+        <h1 id="subtraction"></h1>
+        <hr>
+    </center>
+</body>
+</html>
+<script>
+    class Calculator {
+        constructor() {
+            this.num1 = 0;
+            this.num2 = 0;
+        }
+        setNumbers(num1, num2) {
+            this.num1 = num1;
+            this.num2 = num2;
+        }
+        subtraction(){
+            return +this.num1 - +this.num2;
+        }
+    }
+    const calculator = new Calculator();
+    function  Subtraction() {
+        const num1 = document.getElementById("num1").value
+        const num2 = document.getElementById("num2").value
+        
+       
+        calculator.setNumbers(num1,num2)
+
+        const  subtraction  = document.getElementById("subtraction");
+         subtraction .innerHTML = 
+        `<p>Result of subtraction: ${calculator.subtraction()}</p>`;
+    }
+</script>

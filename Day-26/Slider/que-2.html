@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let olderbooks = [
+    {
+     title: "The India Story", 
+     author: "Bimal Jalal", 
+     Published_year: 2005, 
+    },
+    {
+     title: "Business of Sports: The Winning Formula for Success", 
+     author: "Vinit Karnik", 
+     Published_year: 1900, 
+    },
+    {
+     title: "A Place Called Home", 
+     author: "Preeti Shenoy", 
+     Published_year: 1950, 
+    },
+    {
+     title: "Listen to Your Heart: The London Adventure", 
+     author: "Ruskin Bond", 
+     Published_year: 2010, 
+    },
+    ]
+
+    // function before(library, targetYear) {
+    //     let selbook = library.filter(book => book.Published_year <2000);
+    //     let Titles = selbook.map(book=>(book.title));
+    //     return selbook;
+    // }
+    // let beforeyear = before(olderbooks);
+    // console.log("Books published before 2000:", beforeyear);
+
+    let arr = before(olderbooks)
+    function before(book){
+        let old = []
+        for(let i=0 ; i<book.length ; i++){
+            if(book[i].Published_year < 2000){
+                old.push(book[i].title)
+            }
+        }
+        return old 
+    }
+    console.log(before(olderbooks))
+</script>

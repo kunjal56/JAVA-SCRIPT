@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Cost Calculator</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter Shipping center</label><br>
+        <input type="text" name="" placeholder="center" id="shp">
+        <br><br>
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let shipping=document.getElementById("shp").value
+
+    if(shipping == ""){
+        document.getElementById("ans").innerHTML=""
+    }else if(shipping == 'local'){
+        document.getElementById("ans").innerHTML="$5 + $1 per pound"
+    }else if(shipping == 'national'){
+        document.getElementById("ans").innerHTML="$10 + $2 per pound"
+    }else if(shipping == 'international'){
+        document.getElementById("ans").innerHTML="$20 + $5 per pound"
+    }
+</script>

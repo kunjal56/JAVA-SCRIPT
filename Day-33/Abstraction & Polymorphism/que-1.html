@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+
+    <center>
+        <hr>
+        <label for="radius">Circle Radius:</label>
+        <input type="number" id="radius" required>
+        <br>
+        <label for="width">Rectangle Width:</label>
+        <input type="number" id="width" required>
+        <br>
+        <label for="height">Rectangle Height:</label>
+        <input type="number" id="height" required>
+        <br>
+        <label for="side">Square Side Length:</label>
+        <input type="number" id="side" required>
+        <br>
+        <button type="button" onclick="calculateShapes()">Calculate Shapes</button>
+        <div id="shapes"></div>
+        <hr>
+    </center>
+</body>
+</html>
+<script>
+    class Shape {
+        constructor() {
+         if (this.constructor === Shape) {
+                throw new Error("Shape class cannot be instantiated directly.");
+            }
+        }
+        calculateArea() {
+            throw new Error("calculateArea() method must be implemented in subclasses.");
+        }
+        calculatePerimeter() {
+            throw new Error("calculatePerimeter() method must be implemented in subclasses.");
+        }
+    }
+    class Circle extends Shape {
+        constructor(radius) {
+            super();
+            this.radius = radius;
+        }
+        calculateArea() {
+            return 3.14* Math.pow(this.radius, 2);
+        }
+        calculatePerimeter() {
+            return  2* 3.14 *this.radius;
+        }
+    }
+    class Rectangle extends Shape {
+        constructor(width, height) {
+            super();
+            this.width = width;
+            this.height = height;
+        }
+        calculateArea() {
+            return this.width * this.height;
+        }
+        calculatePerimeter() {
+            return  2*(this.width + this.height);
+        }
+    }
+    class Square extends Shape {
+        constructor(side) {
+            super();
+            this.side = side;
+        }
+        calculateArea() {
+            return Math.pow(this.side, 2);
+        }
+        calculatePerimeter() {
+            return 4 * this.side;
+        }
+    }
+    function calculateShapes() {
+        let circleRadius = document.getElementById("radius").value
+        let rectangleWidth = document.getElementById("width").value
+        let rectangleHeight = document.getElementById("height").value
+        let squareSide = document.getElementById("side").value
+
+        let circle = new Circle(circleRadius);
+        let rectangle = new Rectangle(rectangleWidth, rectangleHeight);
+        let square = new Square(squareSide);
+        let shapes = document.getElementById("shapes");
+        shapes.innerHTML = `
+            <p>Circle Area: ${circle.calculateArea()}</p>
+            <p>Circle Perimeter: ${circle.calculatePerimeter()}</p>
+            <p>Rectangle Area: ${rectangle.calculateArea()}</p>
+            <p>Rectangle Perimeter: ${rectangle.calculatePerimeter()}</p>
+            <p>Square Area: ${square.calculateArea()}</p>
+            <p>Square Perimeter: ${square.calculatePerimeter()}</p>
+        `;
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Number</title>
+</head>
+<body>
+    <center>
+        <h3 id="ans" style="font-size: 20px;"></h3>
+    </center>
+</body>
+</html>
+<script>
+    let number = prompt('Enter a number')
+    if(number == ""){ 
+        document.getElementById("ans").innerHTML=""
+    }else{
+        if(number % 2 != 0){
+            document.getElementById("ans").innerHTML="Entered number is Odd number"
+        }else{
+            document.getElementById("ans").innerHTML="Entered number is Even number"
+        }
+    }
+</script>

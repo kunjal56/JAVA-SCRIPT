@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Detector</title>
+</head>
+<body>
+    <center>
+        <label for="">Enter any character</label>
+        <br>
+        <input type="text" placeholder="value" id="str">
+        <br><br>
+
+        <h3 id="ans"></h3>
+    </center>
+</body>
+</html>
+<script>
+
+    let a=document.getElementById("str").value
+
+    if(a==""){
+        document.getElementById("ans").innerHTML="empty";
+    }
+    else if(a=='a' || a=='e' || a=='i' || a=='o' || a=='u'){
+        document.getElementById("ans").innerHTML="Vowel";
+    }
+    else{
+        document.getElementById("ans").innerHTML="Consonant"
+    }
+
+</script>

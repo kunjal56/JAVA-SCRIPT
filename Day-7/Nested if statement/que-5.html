@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Discounts</title>
+</head>
+<body>
+    <center>
+      <label for="">Electronics</label>
+      <input type="radio" name="category" id="electronics" onclick="calculate()">
+      <br>
+      <label for="">Clothing</label>
+      <input type="radio" name="category" id="clothing" onclick="calculate()">
+      <br>
+      <label for="">Other</label>
+      <input type="radio" name="category" id="other" onclick="calculate()">
+      <br>
+      <input type="text" name="" id="i1">
+      <h1 id="discountBox"></h1>
+    </center>
+    
+  </body>
+<script>
+    function calculate() {
+        let electronics = document.getElementById("electronics").checked;
+        let clothing = document.getElementById("clothing").checked;
+        let other = document.getElementById("other").checked;
+        let quantity = document.getElementById("i1").value;
+
+        if (electronics) {
+            if (quantity >= 2) {
+                let discount = 0.1 * quantity * 100;
+                document.getElementById("discountBox").innerHTML = "10% off for ${quantity} items. Total discount: $${discount};"
+            } else {
+                document.getElementById("discountBox").innerHTML = "No discount for less than 2 items.;"
+            }
+        } else if (clothing) {
+            let discount = 0.5 * quantity * 100;
+            document.getElementById("discountBox").innerHTML = "Buy 1 get 1 50% off. Total discount: $${discount};"
+        } else if (other) {
+            document.getElementById("discountBox").innerHTML = "No discount.";
+        } else {
+            document.getElementById("discountBox").innerHTML = "Select a category";
+        }
+    }
+</script>
+
+</html>

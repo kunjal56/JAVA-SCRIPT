@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Enter any number for fibonacci seriese</h1>
+    <input type="text" id="num" placeholder="Enter number"><br><br>
+    
+</body>
+</html>
+
+<script>
+
+    let a = document.getElementById("num").value
+    let f = 0
+    let s = 1
+    let next
+
+    if(a != "")
+    {
+        for(let i = 0;i<=a;i++){
+        if(i<=1){
+            document.write(i,"<br>")
+        }
+        else{
+            next = f + s 
+            f = s 
+            s = next
+            document.write(next,"<br>")
+        }
+    }
+    }
+
+</script>
+

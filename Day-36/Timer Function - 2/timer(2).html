@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer(2)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            width: 80%;
+            height: 450px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: 10%;
+            margin-top: 8%;
+            background-color: rgb(41, 136, 136);
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 55px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 55px;
+            font-weight: lighter;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .count {
+            width: 180px;
+            height: 120px;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: black;
+        }
+
+        h5 {
+            font-family: sans-serif;
+            font-size: 22px;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <section>
+
+        <h1>OUR SALE ENDS IN:</h1>
+        <div class="main-counter">
+            <div class="count">
+                <h2 id="days">3</h2>
+            </div>
+            <h5>DAYS</h5>
+        </div>
+        <div class="main-counter">
+            <div class="count">
+                <h2 id="hours">24</h2>
+            </div>
+            <h5>HOURS</h5>
+        </div>
+        <div class="main-counter">
+            <div class="count">
+                <h2 id="minute">55</h2>
+            </div>
+            <h5>MINUTS</h5>
+        </div>
+        <div class="main-counter">
+            <div class="count">
+                <h2 id="countdown">0</h2>
+            </div>
+            <h5>SECONDS</h5>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+<script>
+    var day = document.getElementById("day")
+    var hours = document.getElementById("hours")
+    var minute = document.getElementById("minute")
+    var countdown = document.getElementById("countdown")
+
+    var countday = 2
+    var counthour = 23
+    var counterminute = 59
+    var counter = 59
+
+    var stopTiming 
+
+    setInterval (()=>{
+        counter --
+        countdown.innerHTML = counter
+
+        if(counter == 0){
+            counterminute--
+
+            minute.innerHTML = counterminute
+            if(counterminute == 0){
+                    counthour--
+                    hours.innerHTML = counthour
+
+                    if(counthour == 0){
+                        countday --
+                        day.innerHTML = countday
+                        counthour = 24
+                    }
+
+                    counterminute = 60 
+                }
+            counter = 60
+
+        }
+
+    },500)
+
+</script>

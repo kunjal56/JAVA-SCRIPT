@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #filterdcart{
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        #pic{
+            /* width: 150px; */
+            height: 200px;
+        }
+        #productdiv{
+            flex-basis: 24%; 
+            /* border: 1px solid black;    */
+        }
+    </style>
+</head>
+<body>
+    <div id="filterdcart"></div>
+</body>
+</html>
+<script>
+
+let cartdata = JSON.parse(localStorage.getItem("cart")) || []
+
+function product(){
+    cartdata.map((item)=>{
+        let div = document.createElement("div")
+        div.setAttribute("id","productdiv")
+
+        let image = document.createElement("img")
+        image.setAttribute("src",item.image)
+        image.setAttribute("id","pic")
+
+        let title = document.createElement("h3")
+        title.innerHTML = item.title
+
+        let price = document.createElement("h2")
+        price.innerHTML = item.price
+
+        let rate = document.createElement("h4")
+        rate.innerHTML = item.rate
+
+        div.append(image,title,price,rate)
+        document.querySelector("#filterdcart").append(div)
+
+    })
+}
+product()
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <hr>
+        <label for="Name">Animal Name</label>
+        <input type="text" name="" id="Name"><br>
+        <label for="Type">Animal Type</label>
+        <input type="text" name="" id="Type"><br>
+        <label for="Sound">Animal Sound</label>
+        <input type="text" name="" id="Sound"><br>
+        <label for="Legs">Number of Legs</label>
+        <input type="number" name="" id="Legs"><br>
+        <hr>
+    </center>
+    
+    <script>
+            let Name = document.getElementById("Name").value;
+            let Type = document.getElementById("Type").value;
+            let Sound = document.getElementById("Sound").value;
+            let Legs = document.getElementById("Legs").value;
+
+            class Animal {
+                constructor(Name, Type, Sound, Legs) {
+                    this.Name = Name;
+                    this.Type = Type;
+                    this.Sound = Sound;
+                    this.Legs = Legs;
+                }
+            }
+
+            class Dog extends Animal {
+                constructor(Name, Type, Sound, Legs) {
+                    super(Name, Type, Sound, Legs);
+                }
+            }
+
+            let myDog = new Dog(Name, Type, Sound, Legs);
+
+            document.write("Dog Information:<br>");
+            document.write(`Name: ${myDog.Name}<br>`);
+            document.write(`Type: ${myDog.Type}<br>`);
+            document.write(`Sound: ${myDog.Sound}<br>`);
+            document.write(`Number of Legs: ${myDog.Legs}<br>`);
+    </script>
+</body>
+</html>

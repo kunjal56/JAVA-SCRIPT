@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona API</title>
+    <style>
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #corona {
+            border: 1px solid black;
+            width: 600px;
+            height: 600px;
+        }
+
+        h4 {
+            font-size: 25px;
+        }
+
+        input {
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            width: 300px;
+            font-size: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px;
+            border: 1px solid aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="corona">
+            <h4>Covid_19 Cases State Wise</h4>
+            <input type="text" placeholder="Enter State Name" id="name">
+            <button onclick="fetchData()">Search</button>
+        </div>
+        <div id="main"></div>
+    </center>
+</body>
+
+</html>
+<script>
+    function fetchData() {
+        let Search = document.getElementById("name").value
+        fetch(`https://data.covid19india.org/v4/min/data.min.json`)
+
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (json) {
+                console.log(json)
+                displaydata(json)
+            })
+    }
+
+    function displaydata(data){
+        let count = document.getElementById("name").value
+
+        let name  = document.createElement("p")
+        
+        for(let i = 0 ; i <=  37 ; i++){
+            if(count == data[0].state){
+                name.innerHTML ="State : " + data[i].State;
+            }
+        }
+
+
+
+
+        
+        document.querySelector("#main").append(name)
+    }
+</script>
